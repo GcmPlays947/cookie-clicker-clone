@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #f7e9d7;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .main-button {
+    background-color: #d2691e;
+    color: white;
+    padding: 20px 40px;
+    font-size: 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px #a0522d;
+    margin-bottom: 30px;
+  }
+  
+  .main-button:hover {
+    background-color: #b65d1f;
+  }
+  
+  .main-button:active {
+    box-shadow: 0 2px #a0522d;
+    transform: translateY(3px);
+  }
+  
+  .shop {
+    background: #fff3e0;
+    padding: 25px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  .shop h2 {
+    margin-top: 0;
+  }
+  
+  .shop-item {
+    margin-bottom: 20px;
+  }
+  
+  .shop-item button {
+    background-color: #8b4513;
+    color: white;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px #5a3e1c;
+}

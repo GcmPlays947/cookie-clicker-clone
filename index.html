@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cookie Clicker Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>🍪 Cookies: <span id="counter">0</span></h1>
+    <button onclick="addCookie()" class="main-button">Click Me!</button>
+
+    <div class="shop">
+      <h2>🛒 Shop</h2>
+
+      <div class="shop-item">
+        <button onclick="buyCPS()">Buy +1 CPS (10 cookies)</button>
+        <p>CPS: <span id="cps">0</span></p>
+      </div>
+
+      <div class="shop-item">
+        <button onclick="buyCpMS()">Buy +1 0.5 CPS (100 cookies)</button>
+        <p>CpMS: <span id="0.5 cps">0</span></p>
+      </div>
+
+      <div class="shop-item">
+        <button onclick="buyDoubleClicks()">Buy Double Clicks (500 cookies)</button> <!-- New button -->
+        <p>Double Clicks: <span id="doubleClicks">Off</span></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let cookies = 0;
+    let cps = 0;
+    let cpms = 0;
+    let doubleClicks = false; // Variable to track the double click status
+
+    function addCookie() {
+      cookies += doubleClicks ? 2 : 1; // Double cookies if upgrade is purchased
+      updateDisplay();
+    }
+
+    function buyCPS() {
+      if (cookies >= 10) {
+        cookies -= 10;
+        cps++;
+        updateDisplay();
+      } else {
+        alert("Not enough cookies!");
+      }
+    }
+
+    function buyCpMS() {
+      if (cookies >= 100) {
+        cookies -= 100;
+        cpms++;
+        updateDisplay();
+      } else {
+        alert("Not enough cookies!");
+      }
+    }
+
+    function buyDoubleClicks() {
+      if (cookies >= 500) {
+        cookies -= 500;
+        doubleClicks = true; // Activate double click feature
+        document.getElementById("doubleClicks").textContent = "On"; // Update display
+        updateDisplay();
+      } else {
+        alert("Not enough cookies!");
+      }
+    }
+
+    function updateDisplay() {
+      document.getElementById("counter").textContent = cookies;
+      document.getElementById("cps").textContent = cps;
+      document.getElementById("0.5 cps").textContent = cpms;
+    }
+
+    // CPS: Add cookies every second
+    setInterval(() => {
+      cookies += cps;
+      updateDisplay();
+    }, 1000);
+
+    // CpMS: Add cookies every 500 milliseconds (0.5 seconds)
+    setInterval(() => {
+      cookies += cpms;
+      updateDisplay();
+    }, 500); // 500 milliseconds = 0.5 seconds
+  </script>
+
+</body>
+</html>
